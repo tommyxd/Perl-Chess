@@ -9,7 +9,7 @@ Pawns are unusual, because they move and capture in different ways: they move fo
 Pawns can only move forward one square at a time, except for their very first move where they can move forward two squares.
 Pawns only capture one square diagonally in front of them.
 They can never move or capture backwards.
-A pawn can promote itself to a Knight(N), Bishop(B), Rook(R) or Queen(Q) when it reaches the other side of the board.
+A Pawn can promote itself to a Knight(N), Bishop(B), Rook(R) or Queen(Q) when it reaches the other side of the board.
 
 =head1 METHODS
 
@@ -28,6 +28,7 @@ There are no class methods for this class.
 =item
 
 =head1 AUTHOR
+
 Tomislav Dyulgerov
 
 =cut
