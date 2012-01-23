@@ -7,8 +7,9 @@ Chess::Piece::Queen - A class, representing the Queen(Q) chess piece.
 
 A Queen is the most powerful chess piece.
 Each player has only one Queen at the start of the game.
-The Queen can move in any direction - forward, backward, sideways or diagonally, as long as there is no piece of her own blocking the way.
-If there's an opponent's piece in the way - it can be captured.
+The Queen can move in any direction - forward, backward, sideways or diagonally, 
+as long as there is no piece of her own blocking the way.
+If there is an opponent's piece in the way - it can be captured.
 
 =head1 METHODS
 
@@ -27,6 +28,7 @@ There are no class methods for this class.
 =item
 
 =head1 AUTHOR
+
 Tomislav Dyulgerov
 
 =cut
