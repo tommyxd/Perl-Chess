@@ -7,8 +7,7 @@ Chess::Piece::Bishop - A class, representing the Bishop(B) chess piece.
 
 Each player has two Bishops in the beginning of the game.
 Bishops move along diagonals.
-Because of their diagonal movement, they can only move to or attack 
-squares of their initial colour.
+Because of their diagonal movement, they can only move to or attack squares of their initial colour.
 Therefore there's a light squared bishop and a dark squared bishop.
 
 =head1 METHODS
@@ -28,6 +27,7 @@ There are no class methods for this class.
 =item
 
 =head1 AUTHOR
+
 Tomislav Dyulgerov
 
 =cut
