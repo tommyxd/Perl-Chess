@@ -4,6 +4,8 @@ Chess::Piece - The base class of all chess pieces.
 
 =head1 DESCRIPTION
 
+A class, defining the common interface for all chess pieces.
+Every chess piece inherits from this class.
 
 =head1 METHODS
 
