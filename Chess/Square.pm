@@ -42,7 +42,7 @@ print $square->rank;
 
 A getter/setter of the FILE property of the square.
 Called without parameters this method returns the value of $self->{FILE} or undef.
-If a single parameter is passed, $self->{FILE} is set the that number.
+If a single parameter is passed, $self->{FILE} is set to that number.
 
 $square->file(2);
 print $square->file;

@@ -35,7 +35,6 @@ Tomislav Dyulgerov
 
 =cut
 package Chess::Piece;
-
 use strict;
 
 # Constructor method stub.

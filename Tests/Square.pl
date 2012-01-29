@@ -3,7 +3,7 @@
 # Testing the Square.pm module.
 
 use strict;
-use Test::More;
+use Test::More tests => 2;
 use Chess::Square;
 
 my $square = Chess::Square->new();
