@@ -3,7 +3,7 @@
 # Testing the King.pm module.
 
 use strict;
-use Test::Simple tests => 2;
+use Test::More tests => 2;
 use Chess::Piece::King;
 
 my $white_king = Chess::Piece::King->new('e1' => 'white');

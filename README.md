@@ -5,4 +5,4 @@ using a console interface.
 
 ## Libraries
 
-* Test::Simple
+* Test::More

@@ -3,7 +3,7 @@
 # Testing the Knight.pm module.
 
 use strict;
-use Test::Simple tests => 2;
+use Test::More tests => 2;
 use Chess::Piece::Knight;
 
 my $white_knight = Chess::Piece::Knight->new('b1' => 'white');

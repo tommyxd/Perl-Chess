@@ -3,7 +3,7 @@
 # Testing the Rook.pm module.
 
 use strict;
-use Test::Simple tests => 2;
+use Test::More tests => 2;
 use Chess::Piece::Rook;
 
 my $white_rook = Chess::Piece::Rook->new('a1' => 'white');

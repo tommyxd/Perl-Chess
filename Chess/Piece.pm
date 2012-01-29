@@ -1,3 +1,4 @@
+#!/usr/bin/perl -w
 =head1 NAME
 
 Chess::Piece - The base class of all chess pieces.
@@ -23,19 +24,31 @@ There are no class methods for this class.
 
 =item
 
+=item valid_moves()
+
+This is an abstract method that must be overriden by any class that inherits from
+Chess::Piece. Returns a list of Chess::Squares that the certain piece can reach.
+
 =head1 AUTHOR
 
 Tomislav Dyulgerov
 
 =cut
 package Chess::Piece;
+
 use strict;
 
 # Constructor method stub.
 sub new {
     my $class = shift;
     my $self  = {};
-    # TODO: Not implemented yet.
+        
     bless $self, $class;
     return $self;
 }
+
+sub valid_moves {
+    print "Call to the abstract method Chess::Piece::valid_moves().\n";
+}
+
+1;

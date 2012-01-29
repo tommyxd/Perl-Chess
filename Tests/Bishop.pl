@@ -3,7 +3,7 @@
 # Testing the Bishop.pm module.
 
 use strict;
-use Test::Simple tests => 2;
+use Test::More tests => 2;
 use Chess::Piece::Bishop;
 
 my $white_bishop = Chess::Piece::Bishop->new('c1' => 'white');

@@ -3,7 +3,7 @@
 # Testing the Pawn.pm module.
 
 use strict;
-use Test::Simple tests => 2;
+use Test::More tests => 2;
 use Chess::Piece::Pawn;
 
 my $white_pawn = Chess::Piece::Pawn->new('e2' => 'white');
