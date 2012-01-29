@@ -85,7 +85,7 @@ sub file {
             $self->{FILE} = lc $rank; # Converts the character to lowercase.
         }
         else {
-            die "A square's rank can only be a letter from 'A' to 'H'";
+            die "A square's rank can only be a letter from 'A' to 'H'.";
         }
     }
     
