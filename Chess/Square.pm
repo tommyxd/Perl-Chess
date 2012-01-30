@@ -3,6 +3,17 @@
 
 Chess::Square - A class, representing a single square on the Chess::Board.
 
+=head1 SYNOPSIS
+
+use Chess::Square;
+$square = Chess::Square->new();
+
+$square->file('E');
+$square->rank(2);
+$square->color('light');
+
+print "The " . $square->file . $square->rank . " square is " . $square->color;
+
 =head1 DESCRIPTION
 
 Each Chess::Square has coordinates, represented by
@@ -51,8 +62,7 @@ print $square->file;
 
 A getter/setter of the COLOR property of the square.
 Called without parameters this method returns the value of $self->{COLOR} or undef;
-If a single parameters is passed, $self->{COLOR} is set to that string,
-either light or dark.
+If a single parameters is passed, $self->{COLOR} is set to that string(either 'light' or 'dark').
 
 $square->color(dARk);
 print $square->color;

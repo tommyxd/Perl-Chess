@@ -2,8 +2,8 @@
 
 # Testing the Square.pm module.
 
+use lib "E:/Sources/Perl/Perl-Chess/";
 use strict;
-use lib "E:\\Sources\\Perl\\Perl-Chess\\";
 use Test::More tests => 7;
 use Chess::Square;
 
