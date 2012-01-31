@@ -36,9 +36,8 @@ Tomislav Dyulgerov
 =cut
 package Chess::Piece::King;
 use strict;
-
-# Inherits from Chess::Piece.
-our @ISA = ("Chess::Piece");
+use lib "E:/Sources/Perl/Perl-Chess/";
+use parent qw/ Chess::Piece /; # Inherits from Chess::Piece.
 
 # Constructor method stub.
 sub new {

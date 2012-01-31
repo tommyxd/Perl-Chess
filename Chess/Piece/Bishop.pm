@@ -33,11 +33,10 @@ Tomislav Dyulgerov
 =cut
 package Chess::Piece::Bishop;
 use strict;
+use lib "E:/Sources/Perl/Perl-Chess/";
+use parent qw/ Chess::Piece /; # Inherits from Chess::Piece.
 
-# Inherits from Chess::Piece.
-our @ISA = ("Chess::Piece");
-
-# Constructor
+# Constructor method stub.
 sub new {
     my $class = shift;
     my $self  = {};
