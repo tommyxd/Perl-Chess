@@ -5,7 +5,19 @@ Chess::Board - The class, representing the chess board.
 
 =head1 SYNOPSIS
 
+my $board = Chess::Board->new();
+$board->initialize();
 
+my @squares = $board->squares;
+my @pieces  = $board->pieces;
+
+my $e1 = Chess::Square->new();
+$e1->file('e');
+$e1->rank(1);
+
+my $king = $board->get_piece_from_square($e1)
+
+$board->print;
 
 =head1 DESCRIPTION
 
