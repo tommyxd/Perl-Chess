@@ -76,6 +76,11 @@ The user is prompted to enter the letter notation of the piece the pawn will bec
 
 Tomislav Dyulgerov
 
+=head1 COPYRIGHT
+
+Copyright (c) 2012 Tomislav Dyulgerov. All rights reserved.
+This module is Free Software. It may be modified and redistributed under the same terms as Perl itself.
+
 =cut
 package Chess::Piece::Pawn;
 use strict;
@@ -92,20 +97,20 @@ sub move {
     my $self = shift;
     
     my $destination = shift;
-    my @valid_squares = $self->valid_squares;
+    #my @valid_squares = $self->valid_squares;
     
     
-    for my $square (@valid_squares) {
+    #for my $square (@valid_squares) {
         $self->square($destination->file, $destination->rank)
-            if ($square->file eq $destination->file and $square->rank == $destination->rank);
-    }
+            #if ($square->file eq $destination->file and $square->rank == $destination->rank);
+    #}
 }
 
 # Returns a list of Chess::Squares
 sub valid_squares {
     my $self = shift;
     
-    my @valid_squares    = ();
+    my @valid_squares  = ();
     my $current_square = $self->square;
 }
 

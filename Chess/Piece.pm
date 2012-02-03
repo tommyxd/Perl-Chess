@@ -26,7 +26,7 @@ Every chess piece inherits from this class.
 =item new()
 
 Creates a new instance of the Chess::Piece class.
-Takes one parameters - what kind of piece to instantiate.
+Takes one arguments - what kind of piece to instantiate.
 
 =head2 Class methods
 
@@ -37,8 +37,8 @@ There are no class methods for this class.
 =item square()
 
 A getter/setter for the SQUARE property of a piece.
-Called without parameters the method returns the current square that the piece is on.
-Otherwise the method takes up to 3 parameters:
+Called without arguments the method returns the current square that the piece is on.
+Otherwise the method takes up to 3 arguments:
 * the file of the square;
 * the rank of the square;
 * the color of the square(optional).
@@ -50,10 +50,10 @@ $square = $piece->square;
 =item color()
 
 A getter/setter for the COLOR property of a piece.
-Called without parameters the method returns the color of the piece.
+Called without arguments the method returns the color of the piece.
 If a single parameter is passed the $self->{COLOR} is set that string(either 'black' or 'white').
 
-=item valid_moves()
+=item valid_squares()
 
 This is an abstract method that must be overriden by any class that inherits from
 Chess::Piece. Returns a list of Chess::Squares that the certain piece can reach.
@@ -61,6 +61,11 @@ Chess::Piece. Returns a list of Chess::Squares that the certain piece can reach.
 =head1 AUTHOR
 
 Tomislav Dyulgerov
+
+=head1 COPYRIGHT
+
+Copyright (c) 2012 Tomislav Dyulgerov. All rights reserved.
+This module is Free Software. It may be modified and redistributed under the same terms as Perl itself.
 
 =cut
 package Chess::Piece;
@@ -117,6 +122,16 @@ sub color {
     }
     
     return $self->{COLOR};
+}
+
+# Abstract method
+sub type {
+    print "Call to the abstract method Chess::Piece::type().\n";
+}
+
+# Abstract method.
+sub move {
+    print "Call to the abstract method Chess::Piece::move().\n";
 }
 
 # Abstract method.

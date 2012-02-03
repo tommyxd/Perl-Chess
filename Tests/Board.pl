@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 # Testing the Board.pm module.
+
 use strict;
 use lib "E:/Sources/Perl/Perl-Chess/";
 use Chess::Board;

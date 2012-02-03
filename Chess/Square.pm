@@ -28,7 +28,7 @@ Each Chess::Square has coordinates, represented by
 =item new()
 
 Creates a new instance of the Chess::Square class.
-Takes no parameters.
+Takes no arguments.
 The object's properties are accessed via Object methods.
 
 my $square = Chess::Square->new();
@@ -42,7 +42,7 @@ There are no class methods for this class.
 =item rank()
 
 A getter/setter of the RANK property of the square.
-Called without parameters this method returns the value of $self->{RANK} or undef.
+Called without arguments this method returns the value of $self->{RANK} or undef.
 If a single parameter is passed, $self->{RANK} is set to that letter,
 which is always converted to lowercase.
 
@@ -52,7 +52,7 @@ print $square->rank;
 =item file()
 
 A getter/setter of the FILE property of the square.
-Called without parameters this method returns the value of $self->{FILE} or undef.
+Called without arguments this method returns the value of $self->{FILE} or undef.
 If a single parameter is passed, $self->{FILE} is set to that number.
 
 $square->file(2);
@@ -61,8 +61,8 @@ print $square->file;
 =item color()
 
 A getter/setter of the COLOR property of the square.
-Called without parameters this method returns the value of $self->{COLOR} or undef;
-If a single parameters is passed, $self->{COLOR} is set to that string(either 'light' or 'dark').
+Called without arguments this method returns the value of $self->{COLOR} or undef;
+If a single arguments is passed, $self->{COLOR} is set to that string(either 'light' or 'dark').
 
 $square->color(dARk);
 print $square->color;
@@ -70,6 +70,11 @@ print $square->color;
 =head1 AUTHOR
 
 Tomislav Dyulgerov
+
+=head1 COPYRIGHT
+
+Copyright (c) 2012 Tomislav Dyulgerov. All rights reserved.
+This module is Free Software. It may be modified and redistributed under the same terms as Perl itself.
 
 =cut
 package Chess::Square;
@@ -90,9 +95,9 @@ sub new {
 sub file {
     my $self = shift;
     if (@_) {
-        my $rank = shift;
-        if ($rank =~ /[a-h]/i) {
-            $self->{FILE} = lc $rank; # Converts the character to lowercase.
+        my $file = shift;
+        if ($file =~ /[a-h]/i) {
+            $self->{FILE} = lc $file; # Converts the character to lowercase.
         }
         else {
             die "A square's rank can only be a letter from 'A' to 'H'.";
@@ -130,6 +135,24 @@ sub color {
     }
     
     return $self->{COLOR};
+}
+
+# Expects a string as a parameter. Example: e4;
+# Returns a new square
+sub create_square {
+    my $self = shift;
+    
+    if (@_){
+        my $square = shift;
+        my $file   = substr $square, 0, 1;
+        my $rank   = substr $square, 1, 2;
+        
+        $self->file($file);
+        $self->rank($rank);
+    }
+    else {
+        die "Insufficient paramters. Square expected.";
+    }
 }
 
 1;

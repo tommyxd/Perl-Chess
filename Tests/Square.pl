@@ -4,7 +4,7 @@
 
 use lib "E:/Sources/Perl/Perl-Chess/";
 use strict;
-use Test::More tests => 7;
+use Test::More tests => 9;
 use Chess::Square;
 
 my $square = Chess::Square->new();
@@ -32,3 +32,8 @@ my $dark_square = $second_square->color;
 
 ok $light_square eq 'light', "This is a light squre";
 ok $dark_square  eq 'dark',  "This is a dark square";
+
+$square->create_square('e4');
+
+ok $square->file eq 'e', "The square file is set.";
+ok $square->rank == 4, "The square rank is set.";

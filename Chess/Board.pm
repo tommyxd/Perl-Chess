@@ -3,6 +3,10 @@
 
 Chess::Board - The class, representing the chess board.
 
+=head1 SYNOPSIS
+
+
+
 =head1 DESCRIPTION
 
 The class presents the chess board itself and also each piece's position on it.
@@ -14,6 +18,7 @@ The class presents the chess board itself and also each piece's position on it.
 =item new()
 
 Creates a new instance of the Chess::Board class.
+Takes no arguments.
 
 =head2 Class methods
 
@@ -21,11 +26,50 @@ There are no class methods for this class.
 
 =head2 Object methods
 
-=item
+=item empty_board
+
+Initializes an empty board. All 64 squares are created and initalized.
+No pieces, however.
+
+=item initial_board
+
+Returns the starting board for a chess game.
+Populates the board with pieces.
+
+=item initialize
+
+Calls both Chess::Board::empty_board() and Chess::Board::initial_board()
+in order to create a fully functional board.
+
+=item squares
+
+Getter for the SQUARES property of the board.
+Takes no arguments.
+The method returns a list of all Chess::Squares.
+
+=item pieces
+
+Getter for the PIECES property of the board.
+Takes no arguments.
+The method returns a list of all Chess::Pieces on the board.
+
+=item get_piece_from_square
+
+Takes a square as an argument.
+Returns the piece located on that square, if one exists.
+
+=item print
+
+Displays the current state of the board.
 
 =head1 AUTHOR
 
 Tomislav Dyulgerov
+
+=head1 COPYRIGHT
+
+Copyright (c) 2012 Tomislav Dyulgerov. All rights reserved.
+This module is Free Software. It may be modified and redistributed under the same terms as Perl itself.
 
 =cut
 package Chess::Board;
@@ -34,7 +78,6 @@ use lib "E:/Sources/Perl/Perl-Chess/";
 use Chess::Piece;
 use Chess::Square;
 
-# Constructor method stub.
 sub new {
     my $class = shift;
     my $self  = {};
@@ -46,7 +89,6 @@ sub new {
     return $self;
 }
 
-# Initializes an empty board.
 sub empty_board {
     my $self = shift;
     
@@ -67,7 +109,6 @@ sub empty_board {
     }
 }
 
-# Returns the starting board for a chess game.
 sub initial_board {
     my $self = shift;
     
@@ -140,8 +181,6 @@ sub pieces {
     return $self->{PIECES};
 }
 
-# Gets a square as a parameter.
-# Returns the piece located on that square or undef.
 sub get_piece_from_square {
     my $self = shift;
     
@@ -153,8 +192,7 @@ sub get_piece_from_square {
     }
 }
 
-# Displays the current state of the board.
-sub display_board {
+sub print {
     my $self = shift;
     
     for my $rank (reverse 1..8) {
@@ -166,7 +204,12 @@ sub display_board {
             $square->rank($rank);
             
             my $piece = $self->get_piece_from_square($square);
-            my $piece_notation = substr $piece->type, 0, 1 if ($piece);
+            # Each piece is represented by one of the characters: P, B, N, R, Q, K.
+            # Pawn(P), Bishop(B), Knight(N), Rook(R), Queen(Q), King(K).
+            my $piece_notation =
+                $piece->type eq 'Knight' ? uc substr $piece->type, 1, 1 : substr $piece->type, 0, 1
+            if ($piece);
+            
             $piece_notation =
                 $piece->color eq 'white' ? $piece_notation : lc $piece_notation if ($piece);
             
@@ -176,6 +219,7 @@ sub display_board {
     }
     print "\t" x2 . "  ";
     print $_ . "  " for ('a'..'h');
+    print "\n" x 2;
 }
 
 1;
