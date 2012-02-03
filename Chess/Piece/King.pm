@@ -39,13 +39,29 @@ use strict;
 use lib "E:/Sources/Perl/Perl-Chess/";
 use parent qw/ Chess::Piece /; # Inherits from Chess::Piece.
 
-# Constructor method stub.
-sub new {
-    my $class = shift;
-    my $self  = {};
-    # TODO: Not implemented yet.
-    bless $self, $class;
-    return $self;
+sub type {
+    my $self = shift;
+    
+    return 'King';
+}
+
+sub move {
+    my $self = shift;
+    
+    my $destination = shift;
+    my @valid_moves = $self->valid_moves;
+    
+    for my $square (@valid_moves) {
+        $self->square($destination->file, $destination->rank)
+            if ($square->file eq $destination->file and $square->rank == destination->rank);
+    }
+}
+
+sub valid_moves {
+    my $self = shift;
+    
+    my @valid_moves    = ();
+    my $current_square = $self->square;
 }
 
 1;

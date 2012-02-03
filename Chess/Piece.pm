@@ -25,7 +25,8 @@ Every chess piece inherits from this class.
 
 =item new()
 
-Creates a new instance of the Chess::Piece class. Takes no parameters.
+Creates a new instance of the Chess::Piece class.
+Takes one parameters - what kind of piece to instantiate.
 
 =head2 Class methods
 
@@ -74,17 +75,30 @@ sub new {
     $self->{SQUARE} = Chess::Square->new();
     $self->{COLOR}  = undef;
     
-    bless $self, $class;
-    return $self;
+    my $piece_type = shift; # What kind of piece to create.
+    if ($piece_type) {
+        $piece_type = "Chess::Piece::" . $piece_type;
+        eval "use $piece_type";
+        
+        $self = $piece_type->new();
+        
+        bless $self, $piece_type;
+        return $self;
+    }
+    else {
+        bless $self, $class;
+        return $self;
+    }
 }
 
 sub square {
     my $self = shift;
     if (@_) {
         my ($file, $rank, $color) = @_;
+        
         $self->{SQUARE}->file($file);
         $self->{SQUARE}->rank($rank);
-        $self->{SQUARE}->color($color) if ($color);
+        $self->{SQUARE}->color($color) if ($color); # Optional parameter.
     }
     
     return $self->{SQUARE};
@@ -105,6 +119,7 @@ sub color {
     return $self->{COLOR};
 }
 
+# Abstract method.
 sub valid_moves {
     print "Call to the abstract method Chess::Piece::valid_moves().\n";
 }
